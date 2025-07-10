@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,20 +12,26 @@ public class EnemyMove : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        float distance = Vector2.Distance(transform.position, playerTr.position);
-        Debug.Log(distance);
-        if (distance > 1.4f)
-        {
+        MoveEnemy();
+        // Debug.Log(Getdistance());
+    }
 
+    void MoveEnemy()
+    {
+        if (Getdistance() > 1.4f)
+        {
             Vector2 targetposition = Vector2.MoveTowards(transform.position, playerTr.position, movespeed * Time.deltaTime);
             rb.MovePosition(targetposition);
         }
-        
+    }
+
+    float Getdistance()
+    {
+         return Vector2.Distance(transform.position, playerTr.position);
     }
 }

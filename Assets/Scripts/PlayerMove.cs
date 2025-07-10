@@ -1,4 +1,4 @@
-using UnityEngine;
+    using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerMove : MonoBehaviour
@@ -18,11 +18,16 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        MovePlayer();
+    }
+
+    void MovePlayer()
+    {
         playerTr = tr.position;
         Vector2 destination = playerTr + playerInput * Time.deltaTime * moveSpeed;
         transform.position = destination;
     }
-    
+
     private void OnMove(InputValue value)
     {
         playerInput = value.Get<Vector2>(); 
