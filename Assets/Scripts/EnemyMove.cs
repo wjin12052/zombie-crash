@@ -17,8 +17,14 @@ public class EnemyMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 targetposition = Vector2.MoveTowards(transform.position, playerTr.position, movespeed *  Time.deltaTime);
-        rb.MovePosition(targetposition);
+        float distance = Vector2.Distance(transform.position, playerTr.position);
+        Debug.Log(distance);
+        if (distance > 1.4f)
+        {
+
+            Vector2 targetposition = Vector2.MoveTowards(transform.position, playerTr.position, movespeed * Time.deltaTime);
+            rb.MovePosition(targetposition);
+        }
         
     }
 }
