@@ -23,7 +23,7 @@ public class EnemyMove : MonoBehaviour
 
     void MoveEnemy()
     {
-        if (Getdistance() > 1.4f)
+        if (Getdistance() > 1.1f)
         {
             Vector2 targetposition = Vector2.MoveTowards(transform.position, playerTr.position, movespeed * Time.deltaTime);
             rb.MovePosition(targetposition);
