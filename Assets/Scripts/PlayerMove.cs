@@ -25,6 +25,8 @@ public class PlayerMove : MonoBehaviour
     {
         playerTr = tr.position;
         Vector2 destination = playerTr + playerInput * Time.deltaTime * moveSpeed;
+        destination.x = Mathf.Clamp(destination.x, -50, 50);
+        destination.y = Mathf.Clamp(destination.y, -25, 25);
         transform.position = destination;
     }
 
